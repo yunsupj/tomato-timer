@@ -4,6 +4,6 @@ Make timer app with React Native &amp; Redux
  - Redux
  - Expo
 
-Result:
+
 https://expo.io/@goyoons/tomato-timer <br>
 https://exp.host/@goyoons/tomato-timer
