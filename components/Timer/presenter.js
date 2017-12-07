@@ -1,12 +1,31 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 import Button from "../Button";
+import { Audio } from 'expo';
 
 function formatTime(time) {
   let minutes = Math.floor(time/60);
   let seconds = time%60
   return `${minutes<10 ? `0${minutes}` : minutes}:${seconds<10 ? `0${seconds}` : seconds}`
 }
+
+function soundOn(soundOn) {
+  if (soundOn) {
+    (async () => {
+      const source = require("../../sound/MerryGoRoundofLife.mp3");
+
+      try {
+        await Audio.setIsEnabledAsync(true);
+        const sound = new Audio.Sound();
+        await sound.loadAsync(source);
+        await sound.playAsync();
+      } catch(error) {
+          console.error(error);
+      }
+    })();
+  }
+}
+
 
 class Timer extends Component {
 componentWillReceiveProps(nextProps) {
@@ -23,12 +42,13 @@ componentWillReceiveProps(nextProps) {
 
   } else if (currentProps.isPlaying && !nextProps.isPlaying) {
     clearInterval(this.state.timerInterval);
+    soundOn(nextProps.soundOn)
   }
 }
 
   render() {
     //console.log(this.props);
-    const { isPlaying, elapsedTime, timerDuration, startTimer, restartTimer, addSecond } = this.props;
+    const { isPlaying, elapsedTime, timerDuration, startTimer, restartTimer, addSecond, soundOn } = this.props;
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />

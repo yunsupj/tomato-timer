@@ -28,12 +28,13 @@ function addSecond() {
 
 // Reducer
 
-const TIMER_DURATION = 600;
+const TIMER_DURATION = 235;
 
 const initialState = {
   isPlaying: false,
   elapsedTime: 0,
-  timerDuration: TIMER_DURATION
+  timerDuration: TIMER_DURATION,
+  soundOn: false
 };
 
 function reducer(state = initialState, action) {
@@ -65,7 +66,8 @@ function applyRestartTimer(state) {
   return {
     ...state,
     isPlaying: false,
-    elapsedTime: 0
+    elapsedTime: 0,
+    soundOn: false
   };
 }
 
@@ -78,7 +80,8 @@ function applyAddSecond(state) {
   } else {
       return {
         ...state,
-        isPlaying: false
+        isPlaying: false,
+        soundOn: true
       };
     }
 }

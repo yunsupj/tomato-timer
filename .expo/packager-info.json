@@ -1,8 +1,8 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19002,
-  "packagerPid": 5855,
+  "packagerPid": 10173,
   "expoServerNgrokUrl": "https://e7-63f.goyoons.tomato-timer.exp.direct",
   "packagerNgrokUrl": "https://packager.e7-63f.goyoons.tomato-timer.exp.direct",
-  "ngrokPid": 5866
+  "ngrokPid": 10184
 }

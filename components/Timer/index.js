@@ -4,12 +4,13 @@ import { actionCreators } from "../../reducer";
 import Timer from "./presenter";
 
 function mapStateToProps(state) {
-  const { isPlaying, elapsedTime, timerDuration } = state;
+  const { isPlaying, elapsedTime, timerDuration, soundOn } = state;
 
   return {
     isPlaying,
     elapsedTime,
-    timerDuration
+    timerDuration,
+    soundOn
   };
 }
 
